@@ -22,6 +22,14 @@ $ docker-compose exec users pytest "project/tests"
 $ docker-compose exec users pytest "project/tests" -p no:warnings --cov="project"
 ```
 
+To run flake8, black, and isort:
+
+```
+$ docker-compose exec users flake8 project
+$ docker-compose exec users black project --check
+$ docker-compose exec users /bin/sh -c "isort project/*/*.py --check-only"
+```
+
 Then go to:
  - http://127.0.0.1:5001/ping, ping.py
  - http://127.0.0.1:5001/users, list all users
