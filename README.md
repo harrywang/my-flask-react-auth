@@ -1,9 +1,9 @@
 # About
 
-Test-Driven Development with Python, Flask, and Docker:
+Authentication with Flask, React, and Docker:
 
-Course (highly recommended): https://testdriven.io/courses/tdd-flask/
-Code: https://gitlab.com/testdriven/flask-tdd-docker
+- Course (highly recommended): https://testdriven.io/courses/auth-flask-react/getting-started/
+- Code: https://gitlab.com/testdriven/flask-react-auth
 
 My Updates:
 
