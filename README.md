@@ -48,7 +48,8 @@ Then go to:
  $ npm start
  $ npm install axios
  $ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
- $ npm install @testing-library/react
+ $ npm install --save-dev @testing-library/react
  $ npm test # in serivces/client folder
  $ ./node_modules/.bin/react-scripts test --coverage
+ $ npm install --save prop-types
  ```
