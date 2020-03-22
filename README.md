@@ -38,3 +38,14 @@ Then go to:
  - http://127.0.0.1:5001/users, list all users
  - http://localhost:5001/admin/user/, flask admin
  - http://127.0.0.1:5001/doc, swagger api docs
+
+ React: http://localhost:3000
+
+ ```
+ $ node -v
+ $ npm -v
+ $ npm install create-react-app --global
+ $ npm start
+ $ npm install axios
+ $ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
+ ```
