@@ -51,5 +51,30 @@ Then go to:
  $ npm install --save-dev @testing-library/react
  $ npm test # in serivces/client folder
  $ ./node_modules/.bin/react-scripts test --coverage
- $ npm install --save prop-types
+ $ npm install prop-types
  ```
+
+ React docker: http://localhost:3007
+
+ change to "react-scripts": "3.4.1"
+
+ ```
+ $ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
+ $ docker-compose up -d --build
+ $ docker-compose exec users python manage.py recreate_db
+ $ docker-compose exec users python manage.py seed_db
+ $ docker-compose exec client npm test
+ ```
+
+ ssh to container
+
+ ```
+ $ docker-compose exec users /bin/sh
+ $ docker-compose exec users-db /bin/sh
+ ```
+
+
+Docker:
+```
+$ docker system prune -a --volumes # delete everything
+```
