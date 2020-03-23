@@ -56,8 +56,6 @@ Then go to:
 
  React docker: http://localhost:3007
 
- change to "react-scripts": "3.4.1"
-
  ```
  $ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
  $ docker-compose up -d --build
