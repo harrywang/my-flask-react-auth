@@ -76,3 +76,5 @@ Docker:
 ```
 $ docker system prune -a --volumes # delete everything
 ```
+
+Auto reloading not working solution: I deleted virtual box, remove everything with ``$ docker system prune -a --volumes`, deleted docker, restart the Mac (Catalina), get the latest Docker for Mac Desktop, then it works. 
