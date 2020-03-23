@@ -56,21 +56,21 @@ class App extends Component {
     render() {
       return (
         <section className="section">
-            <div className="container">
-                <div className="columns">
-                    <div className="column is-one-third">
-                        <br/>
-                        <h1 className="title is-1">Users</h1>
-                        <hr/><br/>
-                        <AddUser
-                            username={this.state.username}
-                            email={this.state.email}
-                            addUser={this.addUser}
-                            handleChange={this.handleChange}
-                        />
-                        <br/>
-                        <br/>
-                <UsersList users={this.state.users}/>
+          <div className="container">
+            <div className="columns">
+              <div className="column is-one-third">
+                <br />
+                <h1 className="title is-1">Users</h1>
+                <hr /><br />
+                <AddUser
+                  username={this.state.username}
+                  email={this.state.email}
+                  addUser={this.addUser}
+                  onChange={this.handleChange}
+                />
+                <br />
+                <br />
+                <UsersList users={this.state.users} />
               </div>
             </div>
           </div>

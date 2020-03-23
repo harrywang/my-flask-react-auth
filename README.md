@@ -39,6 +39,7 @@ Then go to:
  - http://localhost:5001/admin/user/, flask admin
  - http://127.0.0.1:5001/doc, swagger api docs
 
+
  React: http://localhost:3000
 
  ```
@@ -79,4 +80,11 @@ $ docker system prune -a --volumes # delete everything
 
 Auto reloading not working solution:
 
-I deleted virtual box, remove everything with `$ docker system prune -a --volumes`, deleted docker, restart the Mac (Catalina), get the latest Docker for Mac Desktop, then it works. 
+I deleted virtual box, remove everything with `$ docker system prune -a --volumes`, deleted docker, restart the Mac (Catalina), get the latest Docker for Mac Desktop, then it works.
+
+linting and formatting:
+
+```
+$ docker-compose exec client npm run prettier:check
+$ docker-compose exec client npm run lint
+```

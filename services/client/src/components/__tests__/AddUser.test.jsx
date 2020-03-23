@@ -14,7 +14,7 @@ const props = {
 
 
 test('renders with default props', () => {
-  const { getByLabelText, getByText } = render(<AddUser {...props}/>);
+  const { getByLabelText, getByText } = render(<AddUser {...props} />);
 
   const usernameInput = getByLabelText('Username');
   expect(usernameInput).toHaveAttribute('type', 'text');
@@ -31,6 +31,6 @@ test('renders with default props', () => {
 });
 
 test("renders", () => {
-  const { asFragment } = render(<AddUser {...props}/>);
+  const { asFragment } = render(<AddUser {...props} />);
   expect(asFragment()).toMatchSnapshot();
 });
