@@ -26,13 +26,21 @@ $ docker-compose stop
 ```
 then go to http://localhost:3007
 
-tests:
+backend tests:
 
 ```
 $ docker-compose exec users python -m pytest "project/tests" -p no:warnings
 $ docker-compose exec users flake8 project
 $ docker-compose exec users black project
 $ docker-compose exec users /bin/sh -c "isort project/**/*.py"
+```
+
+frontend tests:
+
+```
+$ docker-compose exec client npm test
+$ docker-compose exec client npm run prettier:check
+$ docker-compose exec client npm run lint
 ```
 
 Other commands:
