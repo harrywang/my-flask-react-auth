@@ -66,7 +66,7 @@ class App extends Component {
                   username={this.state.username}
                   email={this.state.email}
                   addUser={this.addUser}
-                  onChange={this.handleChange}
+                  handleChange={this.handleChange}
                 />
                 <br />
                 <br />
