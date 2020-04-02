@@ -1,25 +1,4 @@
-# Run
-
-To run:
-
-http://localhost:3007
-
-```
-$ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
-$ docker-compose up -d --build
-$ docker-compose exec users python manage.py recreate_db
-$ docker-compose exec users python manage.py seed_db
-$ docker-compose exec client npm test
-$ docker-compose stop
-```
-then go to http://localhost:3007
-
-```
-$ docker-compose down
-$ docker-compose down -v
-```
-
-
+# About
 
 Authentication with Flask, React, and Docker:
 
@@ -31,6 +10,39 @@ My Updates:
 1. pin down werkzeug<=0.16.1
 2. use flask-restx
 3. add some instructions
+
+## Run
+
+To run:
+
+http://localhost:3007
+
+```
+$ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
+$ docker-compose up -d --build
+$ docker-compose exec users python manage.py recreate_db
+$ docker-compose exec users python manage.py seed_db
+$ docker-compose stop
+```
+then go to http://localhost:3007
+
+tests:
+
+```
+$ docker-compose exec users python -m pytest "project/tests" -p no:warnings
+$ docker-compose exec users flake8 project
+$ docker-compose exec users black project
+$ docker-compose exec users /bin/sh -c "isort project/**/*.py"
+```
+
+Other commands:
+
+```
+$ docker-compose down
+$ docker-compose down -v
+```
+
+## Other Notes
 
 To start:
 ```
