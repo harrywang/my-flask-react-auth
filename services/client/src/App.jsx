@@ -15,13 +15,10 @@ class App extends Component {
 
     this.state = {
       users: [],
-      username: "",
-      email: "",
       title: "My App",
     };
 
     this.addUser = this.addUser.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -36,26 +33,16 @@ class App extends Component {
     });
   }
 
-  addUser(event) {
-    event.preventDefault();
-
-    const data = {
-      username: this.state.username,
-      email: this.state.email
-    };
-
-    axios.post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data).then(res => {
-      this.getUsers();
-      this.setState({username: "", email: ""});
-    }).catch(err => {
-      console.log(err);
-    });
-  }
-
-  handleChange(event) {
-    const obj = {};
-    obj[event.target.name] = event.target.value;
-    this.setState(obj);
+  addUser(data) {
+    axios
+      .post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
+      .then(res => {
+        this.getUsers();
+        this.setState({ username: "", email: "" });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -76,11 +63,7 @@ class App extends Component {
                         <h1 className="title is-1">Users</h1>
                         <hr /><br />
                         <AddUser
-                          username={this.state.username}
-                          email={this.state.email}
                           addUser={this.addUser}
-                          // eslint-disable-next-line react/jsx-handler-names
-                          handleChange={this.handleChange}
                         />
                         <br /><br />
                         <UsersList users={this.state.users} />
