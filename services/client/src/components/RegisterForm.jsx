@@ -1,24 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { Redirect } from "react-router-dom";
 
-import './form.css';
+import "./form.css";
 
-const RegisterForm = (props) => {
-  if (props.isAuthenticated()){
-    return <Redirect to='/' />;
+const RegisterForm = props => {
+  if (props.isAuthenticated()) {
+    return <Redirect to="/" />;
   }
   return (
     <div>
       <h1 className="title is-1">Register</h1>
-      <hr /><br />
+      <hr />
+      <br />
       <Formik
         initialValues={{
-          username: '',
-          email: '',
-          password: '',
+          username: "",
+          email: "",
+          password: ""
         }}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           props.handleRegisterFormSubmit(values);
@@ -27,15 +28,15 @@ const RegisterForm = (props) => {
         }}
         validationSchema={Yup.object().shape({
           username: Yup.string()
-          .required('Username is required.')
-          .min(3, 'Username must be greater than 4 characters.'),
+            .required("Username is required.")
+            .min(3, "Username must be greater than 4 characters."),
           email: Yup.string()
-          .email('Enter a valid email.')
-          .required('Email is required.')
-          .min(3, 'Email must be greater than 4 characters.'),
+            .email("Enter a valid email.")
+            .required("Email is required.")
+            .min(6, "Email must be greater than 7 characters."),
           password: Yup.string()
-          .required('Password is required.')
-          .min(3, 'Password must be greater than 4 characters.'),
+            .required("Password is required.")
+            .min(3, "Password must be greater than 4 characters.")
         })}
       >
         {props => {
@@ -46,20 +47,21 @@ const RegisterForm = (props) => {
             isSubmitting,
             handleChange,
             handleBlur,
-            handleSubmit,
+            handleSubmit
           } = props;
           return (
             <form onSubmit={handleSubmit}>
               <div className="field">
-                <label
-                  className="label"
-                  htmlFor="input-username"
-                >Username</label>
+                <label className="label" htmlFor="input-username">
+                  Username
+                </label>
                 <input
                   name="username"
                   id="input-username"
                   className={
-                    errors.username && touched.username ? 'input error' : 'input'
+                    errors.username && touched.username
+                      ? "input error"
+                      : "input"
                   }
                   type="text"
                   placeholder="Enter a username"
@@ -68,19 +70,20 @@ const RegisterForm = (props) => {
                   onBlur={handleBlur}
                 />
                 {errors.username && touched.username && (
-                  <div className="input-feedback">{errors.username}</div>
+                  <div className="input-feedback" data-testid="errors-username">
+                    {errors.username}
+                  </div>
                 )}
               </div>
               <div className="field">
-                <label
-                  className="label"
-                  htmlFor="input-email"
-                >Email</label>
+                <label className="label" htmlFor="input-email">
+                  Email
+                </label>
                 <input
                   name="email"
                   id="input-email"
                   className={
-                    errors.email && touched.email ? 'input error' : 'input'
+                    errors.email && touched.email ? "input error" : "input"
                   }
                   type="email"
                   placeholder="Enter an email address"
@@ -89,19 +92,22 @@ const RegisterForm = (props) => {
                   onBlur={handleBlur}
                 />
                 {errors.email && touched.email && (
-                  <div className="input-feedback">{errors.email}</div>
+                  <div className="input-feedback" data-testid="errors-email">
+                    {errors.email}
+                  </div>
                 )}
               </div>
               <div className="field">
-                <label
-                  className="label"
-                  htmlFor="input-password"
-                >Password</label>
+                <label className="label" htmlFor="input-password">
+                  Password
+                </label>
                 <input
                   name="password"
                   id="input-password"
                   className={
-                    errors.password && touched.password ? 'input error' : 'input'
+                    errors.password && touched.password
+                      ? "input error"
+                      : "input"
                   }
                   type="password"
                   placeholder="Enter a password"
@@ -110,7 +116,9 @@ const RegisterForm = (props) => {
                   onBlur={handleBlur}
                 />
                 {errors.password && touched.password && (
-                  <div className="input-feedback">{errors.password}</div>
+                  <div className="input-feedback" data-testid="errors-password">
+                    {errors.password}
+                  </div>
                 )}
               </div>
               <input
@@ -124,12 +132,12 @@ const RegisterForm = (props) => {
         }}
       </Formik>
     </div>
-  )
-}
+  );
+};
 
 RegisterForm.propTypes = {
   handleRegisterFormSubmit: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.func.isRequired
 };
 
 export default RegisterForm;
