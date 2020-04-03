@@ -8,6 +8,7 @@ import About from './components/About';
 import NavBar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
+import UserStatus from './components/UserStatus';
 
 class App extends Component {
   constructor() {
@@ -103,6 +104,7 @@ logoutUser = () => {
         <NavBar
           title={this.state.title}
           logoutUser={this.logoutUser}
+          isAuthenticated={this.isAuthenticated}
         />
         <section className="section">
           <div className="container">
@@ -152,6 +154,16 @@ logoutUser = () => {
                   />
                   <Route exact path='/login' component={LoginForm} />
                   <Route exact path='/about' component={About} />
+                  <Route
+                    exact
+                    path='/status'
+                    render={() => (
+                      <UserStatus
+                        accessToken={this.state.accessToken}
+                        isAuthenticated={this.isAuthenticated}
+                      />
+                    )}
+                  />
                 </Switch>
               </div>
             </div>
