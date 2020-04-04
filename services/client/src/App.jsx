@@ -219,6 +219,18 @@ handleCloseModal = () => {
                   )} />
                   <Route
                     exact
+                    path="/register"
+                    render={() => (
+                      <RegisterForm
+                        // eslint-disable-next-line react/jsx-handler-names
+                        handleRegisterFormSubmit={this.handleRegisterFormSubmit}
+                        isAuthenticated={this.isAuthenticated}
+                      />
+                    )}
+                  />
+                  
+                  <Route
+                    exact
                     path='/login'
                     render={() => (
                       <LoginForm
@@ -228,7 +240,7 @@ handleCloseModal = () => {
                       />
                     )}
                   />
-                  <Route exact path='/login' component={LoginForm} />
+
                   <Route exact path='/about' component={About} />
                   <Route
                     exact
