@@ -228,7 +228,7 @@ handleCloseModal = () => {
                       />
                     )}
                   />
-                  
+
                   <Route
                     exact
                     path='/login'
@@ -240,7 +240,17 @@ handleCloseModal = () => {
                       />
                     )}
                   />
-
+                  <Route
+                    exact
+                    path="/status"
+                    render={() => (
+                      <UserStatus
+                        accessToken={this.state.accessToken}
+                        isAuthenticated={this.isAuthenticated}
+                      />
+                    )}
+                  />
+                  
                   <Route exact path='/about' component={About} />
                   <Route
                     exact
