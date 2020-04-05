@@ -5,4 +5,4 @@ jobs:
       - image: circleci/python:3.6.2-stretch-browsers
     steps:
       - checkout
-      - run: pip install -r requirements/dev.txt
+      - run: pip install -r services/users/requirements-dev.txt
