@@ -3,8 +3,19 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.7-stretch-browsers-legacy
+        environment:
+          FLASK_ENV: development
+          DATABASE_TEST_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: circle_test
+          POSTGRES_PASSWORD: ""
     steps:
       - checkout
-      - run: python -m venv venv
-      - run: source venv/bin/activate
-      - run: pip install -r services/users/requirements-dev.txt
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r services/users/requirements-dev.txt
